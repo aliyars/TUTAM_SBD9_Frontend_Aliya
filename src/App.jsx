@@ -25,7 +25,7 @@ function App() {
   const fetchAllMedia = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(`${API_URL}/api`);
+      const response = await axios.get(`${API_URL}/api/media`);
       if (response.data.success) {
         setMedia(response.data.payload);
       } else {
@@ -65,7 +65,7 @@ function App() {
               element={<AddMediaPage fetchAllMedia={fetchAllMedia} />} 
             />
             <Route 
-              path="/api/:id" 
+              path="/api/media/:id" 
               element={<MediaDetailsPage fetchAllMedia={fetchAllMedia} />} 
             />
             <Route path="*" element={<NotFoundPage />} />

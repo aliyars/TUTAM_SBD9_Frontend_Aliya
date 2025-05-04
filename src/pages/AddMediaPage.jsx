@@ -58,7 +58,7 @@ const AddMediaPage = ({ fetchAllMedia }) => {
         mediaFormData.append('image', formData.image);
       }
 
-      const response = await axios.post(`${API_URL}/api/`, mediaFormData, {
+      const response = await axios.post(`${API_URL}/api/media`, mediaFormData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }

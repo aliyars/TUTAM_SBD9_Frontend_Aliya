@@ -17,7 +17,7 @@ const MediaDetailsPage = ({ fetchAllMedia }) => {
     const getMediaDetails = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`${API_URL}/api/${id}`);
+        const response = await axios.get(`${API_URL}/api/media/${id}`);
         
         if (response.data.success) {
           setMedia(response.data.payload);
@@ -39,7 +39,7 @@ const MediaDetailsPage = ({ fetchAllMedia }) => {
   const handleDelete = async () => {
     if (window.confirm('Are you sure you want to delete this item?')) {
       try {
-        const response = await axios.delete(`${API_URL}/api/${id}`);
+        const response = await axios.delete(`${API_URL}/api/media/${id}`);
         
         if (response.data.success) {
           toast.success('Item deleted successfully');
@@ -108,11 +108,11 @@ const MediaDetailsPage = ({ fetchAllMedia }) => {
       <div className="md:flex">
         <div className="md:w-1/3">
           <img
-            src={media.image_url || `/api/placeholder/400/600`}
+            src={media.image_url || `/api/media/placeholder/400/600`}
             alt={media.title}
             className="w-full h-64 md:h-full object-cover"
             onError={(e) => {
-              e.target.src = `/api/placeholder/400/600`;
+              e.target.src = `/api/media/placeholder/400/600`;
             }}
           />
         </div>
